@@ -1,0 +1,21 @@
+[
+	{
+		"name": "Kenneth Thompson",
+		"address": "8114 Grow Drive #9",
+		"city": "Cape Neddick",
+		"state": "ME",
+		"zip": "03902"
+	},
+	{
+		"options": [
+			{
+				"company": "BANK OF AMERICA CHECKING",
+				"account_number": "5567"
+			},
+			{				
+				"company": "VISA",
+				"account_number": "4512"
+			}
+		]
+	}
+]
