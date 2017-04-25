@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-  res.json(require('./mock.json'));
+  res.json(require('../mock.json'));
 })
 
 app.listen(port, () => {
