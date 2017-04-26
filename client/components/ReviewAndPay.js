@@ -15,7 +15,7 @@ export default class ReviewAndPay extends Component {
       showModal: false,
       showPayNowModal: false
     };
-    this.onModalPress = this.onModalPress.bind(this)
+    this.onModalPress = this.onModalPress.bind(this);
     this.onPayNowPress = this.onPayNowPress.bind(this);
   }
 

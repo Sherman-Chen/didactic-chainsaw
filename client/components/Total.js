@@ -3,24 +3,48 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableOpacity
 } from 'react-native';
+import MockModal from './MockModal'
 
-const Total = () => {
-  let { container, text, link, item1, item2, item3 } = styles;
+class Total extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showModal: false
+    };
+    this.onModalPress = this.onModalPress.bind(this);
+  }
 
-  return (
-    <View style={container}>
-      <View style={item1}>
-        <Text style={text}>Total</Text>
-      </View>
-      <View style={item2}>
-        <Text style={text}>$28.98</Text>
-      </View>
-      <View style={item3}>
-        <Text style={link}>></Text>
-      </View>      
-    </View>
-  )
+  onModalPress() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  }
+
+  render() {
+    
+    let { container, text, link, item1, item2, item3} = styles;
+
+    return (
+      <TouchableOpacity 
+        onPress={this.onModalPress}
+        style={container}
+      >
+        <View style={item1}>
+          <Text style={text}>Total</Text>
+        </View>
+        <View style={item2}>
+          <Text style={text}>$28.98</Text>
+        </View>
+        <View style={item3}>
+          <Text style={link}>></Text>
+        </View>      
+
+      <MockModal showModal={this.state.showModal} onClose={this.onModalPress} />  
+      </TouchableOpacity>
+    )
+  }
 };
 
 const styles = StyleSheet.create({

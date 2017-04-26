@@ -97,9 +97,10 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
   flexContainer: {
+    paddingTop: 10,
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'stretch'
+    alignItems: 'stretch',
   },
   infoContainer: {
     height: '25%',
