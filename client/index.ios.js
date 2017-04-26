@@ -24,8 +24,6 @@ export default class client extends Component {
       user: [],
       dataFetched: false
     };
-    this.onPayNowPress = this.onPayNowPress.bind(this);
-    this.onLearnMorePress = this.onLearnMorePress.bind(this);
   }
 
   fetchUserData() {
@@ -42,14 +40,6 @@ export default class client extends Component {
       .catch(e => {
         console.error(e);
       })
-  }
-
-  onPayNowPress() {
-    console.log('wired');
-  }
-
-  onLearnMorePress() {
-    console.log('on learn more');
   }
 
   componentDidMount() {
@@ -88,13 +78,24 @@ export default class client extends Component {
       );
     } else {
       return (
-        <Text>App Initializing...</Text>
+        <View style={styles.loading}>
+          <Text style={styles.loadingText}>App Initializing...</Text>
+        </View>
       )
     }
   }
 }
 
 const styles = StyleSheet.create({
+  loading: {
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 40
+  },
   flexContainer: {
     display: 'flex'
   },
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     height: '25%',
   },
   totalContainer: {
-    backgroundColor: 'grey',
+    backgroundColor: '#F7F9FA',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -116,13 +117,13 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'space-between',
     height: '40%',
-    backgroundColor: 'purple'
   },
   text: {
-    fontSize: 24
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   link: {
-    color: 'blue',
+    color: '#1072B7',
     fontSize: 24
   }
 });
