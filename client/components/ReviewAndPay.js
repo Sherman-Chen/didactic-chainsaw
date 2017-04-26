@@ -6,12 +6,14 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import MockModal from './MockModal';
+import PayNowModal from './PayNowModal';
 
 export default class ReviewAndPay extends Component {
   constructor() {
     super();
     this.state = {
-      showModal: false
+      showModal: false,
+      showPayNowModal: false
     };
     this.onModalPress = this.onModalPress.bind(this)
     this.onPayNowPress = this.onPayNowPress.bind(this);
@@ -24,7 +26,9 @@ export default class ReviewAndPay extends Component {
   }
 
   onPayNowPress() {
-    console.log('on learn more press');
+    this.setState({
+      showPayNowModal: !this.state.showPayNowModal
+    });
   }
 
   render() {
@@ -52,6 +56,7 @@ export default class ReviewAndPay extends Component {
         </Text>
 
         <MockModal showModal={this.state.showModal} onClose={this.onModalPress} />
+        <PayNowModal showModal={this.state.showPayNowModal} onClose={this.onPayNowPress}/>
       </View>
     )  
   }
