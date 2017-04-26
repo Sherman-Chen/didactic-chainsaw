@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     height: '25%',
-    marginTop: 5
+    marginTop: 3
   },
   totalContainer: {
     backgroundColor: '#F7F9FA',

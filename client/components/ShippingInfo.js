@@ -32,11 +32,11 @@ const ShippingInfo = props => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 30,
-    paddingLeft: 10,
+    paddingLeft: 10
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 24
+    fontSize: 20
   },
   alignItems: {
     flexDirection: 'row',
