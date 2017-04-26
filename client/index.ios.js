@@ -10,10 +10,12 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  StatusBar
 } from 'react-native';
 import ShippingInfo from './components/ShippingInfo';
 import PaymentInfo from './components/PaymentInfo';
+import ReviewAndPay from './components/ReviewAndPay';
 
 export default class client extends Component {
   constructor() {
@@ -23,6 +25,7 @@ export default class client extends Component {
       dataFetched: false
     };
     this.onPayNowPress = this.onPayNowPress.bind(this);
+    this.onLearnMorePress = this.onLearnMorePress.bind(this);
   }
 
   fetchUserData() {
@@ -45,6 +48,10 @@ export default class client extends Component {
     console.log('wired');
   }
 
+  onLearnMorePress() {
+    console.log('on learn more');
+  }
+
   componentDidMount() {
     this.fetchUserData();
   }
@@ -54,27 +61,29 @@ export default class client extends Component {
       let { name, address, city, state, zip, payment_options } = this.state.user;
 
       return (
-        <View>
-          <ShippingInfo 
-            name={name}
-            address={address}
-            city={city}
-            state={state}
-            zip={zip} 
-          />
-          <PaymentInfo 
-            paymentOptions={payment_options}
-          />
-          <View style={styles.total}>
-            <Text>Total</Text>
-            <Text>$28.98</Text>
+        <View style={styles.flexContainer}>
+          <StatusBar translucent={true} backgroundColor={'transparent'} /> 
+          <View style={styles.infoContainer}>
+            <ShippingInfo 
+              name={name}
+              address={address}
+              city={city}
+              state={state}
+              zip={zip} 
+            />
           </View>
-          <Text>View PayPal Policies and your payment method rights.</Text>
-          <TouchableHighlight onPress={this.onPayNowPress} style={styles.payNowBtn}>
-            <Text style={styles.payNowBtnText}>Pay Now</Text>
-          </TouchableHighlight>
-          <Text style={styles.footer}>If money is added to your PayPal balance before this transaction completes, the additional balance may be used to complete your payment.</Text>
-          <TouchableHighlight><Text>Learn More</Text></TouchableHighlight>
+          <View style={styles.infoContainer}>
+            <PaymentInfo 
+              paymentOptions={payment_options}
+            />
+          </View>
+          <View style={styles.totalContainer}>
+            <Text style={styles.text}>Total</Text>
+            <Text style={styles.text}>$28.98 <Text style={styles.link}>></Text></Text>
+          </View>
+          <View style={styles.reviewAndPayContainer}>
+            <ReviewAndPay />
+          </View>
         </View>
       );
     } else {
@@ -86,21 +95,35 @@ export default class client extends Component {
 }
 
 const styles = StyleSheet.create({
-  total: {
-    backgroundColor: 'ghostwhite'
+  flexContainer: {
+    display: 'flex'
   },
-  payNowBtn: {
-    backgroundColor: 'blue',
+  infoContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    height: '25%',
   },
-  payNowBtnText: {
-    color: 'white'
+  totalContainer: {
+    backgroundColor: 'grey',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+    height: '10%'
   },
-  footer: {
-    color: 'grey',
-    fontSize: 10
+  reviewAndPayContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    height: '40%',
+    backgroundColor: 'purple'
+  },
+  text: {
+    fontSize: 24
   },
   link: {
-    color: 'blue'
+    color: 'blue',
+    fontSize: 24
   }
 });
 
