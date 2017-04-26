@@ -9,13 +9,13 @@ import {
 } from 'react-native';
 
 const MockModal = props => {
-  let { showModal, onClose } = props;
+  let { showModal, onClose, animation } = props;
   let { modalContainer, article, closeButton, buttonText, articleText, title } = styles;
 
   return (
     <Modal
       visible={showModal}
-      animationType={'slide'}
+      animationType={animation}
       onRequestClose={() => {console.log('ANDROID DEV')}}
     >
         <View style={modalContainer}>

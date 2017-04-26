@@ -55,7 +55,7 @@ export default class ReviewAndPay extends Component {
           <Text onPress={this.onModalPress} style={link}> Learn More</Text>.
         </Text>
 
-        <MockModal showModal={this.state.showModal} onClose={this.onModalPress} />
+        <MockModal showModal={this.state.showModal} onClose={this.onModalPress} animation={'slide'}/>
         <PayNowModal showModal={this.state.showPayNowModal} onClose={this.onPayNowPress}/>
       </View>
     )  

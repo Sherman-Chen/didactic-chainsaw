@@ -32,7 +32,7 @@ const MockPickerModal = props => {
           </View>
           <View style={buttonContainer}>
             <View style={button}>
-              <Text style={buttonText} onPress={onClose}>Close</Text>
+              <Text style={buttonText} onPress={onClose}>Save Selection</Text>
             </View>
           </View> 
         </View>

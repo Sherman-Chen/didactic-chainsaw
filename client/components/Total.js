@@ -41,7 +41,7 @@ class Total extends Component {
           <Text style={link}>></Text>
         </View>      
 
-      <MockModal showModal={this.state.showModal} onClose={this.onModalPress} />  
+      <MockModal showModal={this.state.showModal} onClose={this.onModalPress} animation={'fade'}/>  
       </TouchableOpacity>
     )
   }

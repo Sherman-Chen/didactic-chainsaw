@@ -5,7 +5,6 @@ import {
   View,
   TouchableHighlight
 } from 'react-native';
-import PayNowModal from './PayNowModal';
 import MockPickerModal from './MockPickerModal';
 
 export default class PaymentInfo extends Component {
@@ -44,7 +43,6 @@ export default class PaymentInfo extends Component {
           </View>
         </TouchableHighlight>
 
-        {/* <PayNowModal showModal={this.state.showModal} onClose={this.onModalPress} /> */}
         <MockPickerModal showModal={this.state.showModal} onClose={this.onModalPress} />
       </View>
     )  
