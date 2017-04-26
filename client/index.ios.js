@@ -10,6 +10,7 @@ import {
 import ShippingInfo from './components/ShippingInfo';
 import PaymentInfo from './components/PaymentInfo';
 import ReviewAndPay from './components/ReviewAndPay';
+import Total from './components/Total';
 
 export default class client extends Component {
   constructor() {
@@ -62,8 +63,7 @@ export default class client extends Component {
             />
           </View>
           <View style={totalContainer}>
-            <Text style={text}>Total</Text>
-            <Text style={text}>$28.98 <Text style={link}>></Text></Text>
+            <Total />
           </View>
           <View style={reviewAndPayContainer}>
             <ReviewAndPay />
@@ -107,23 +107,10 @@ const styles = StyleSheet.create({
   },
   totalContainer: {
     backgroundColor: '#F7F9FA',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 10,
     height: '10%'
   },
   reviewAndPayContainer: {
     height: '40%',
-  },
-  text: {
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
-  link: {
-    color: '#1072B7',
-    fontSize: 24
   }
 });
 
