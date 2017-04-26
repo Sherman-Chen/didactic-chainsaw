@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -49,11 +43,12 @@ export default class client extends Component {
   render() {
     if (this.state.dataFetched) {
       let { name, address, city, state, zip, payment_options } = this.state.user;
+      let { flexContainer, infoContainer, totalContainer, text, link, reviewAndPayContainer } = styles;
 
       return (
-        <View style={styles.flexContainer}>
+        <View style={flexContainer}>
           <StatusBar translucent={true} backgroundColor={'transparent'} /> 
-          <View style={styles.infoContainer}>
+          <View style={infoContainer}>
             <ShippingInfo 
               name={name}
               address={address}
@@ -62,24 +57,25 @@ export default class client extends Component {
               zip={zip} 
             />
           </View>
-          <View style={styles.infoContainer}>
+          <View style={infoContainer}>
             <PaymentInfo 
               paymentOptions={payment_options}
             />
           </View>
-          <View style={styles.totalContainer}>
-            <Text style={styles.text}>Total</Text>
-            <Text style={styles.text}>$28.98 <Text style={styles.link}>></Text></Text>
+          <View style={totalContainer}>
+            <Text style={text}>Total</Text>
+            <Text style={text}>$28.98 <Text style={link}>></Text></Text>
           </View>
-          <View style={styles.reviewAndPayContainer}>
+          <View style={reviewAndPayContainer}>
             <ReviewAndPay />
           </View>
         </View>
       );
     } else {
+      let { loading, loadingText } = styles;
       return (
-        <View style={styles.loading}>
-          <Text style={styles.loadingText}>App Initializing...</Text>
+        <View style={loading}>
+          <Text style={loadingText}>App Initializing...</Text>
         </View>
       )
     }

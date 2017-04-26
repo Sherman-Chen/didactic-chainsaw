@@ -27,25 +27,27 @@ export default class ReviewAndPay extends Component {
   }
 
   render() {
+    let { container, blurb, link, payNowBtn, payNowBtnText, footer } = styles;
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.blurb}>
+      <View style={container}>
+        <Text style={blurb}>
           View 
-            <Text style={styles.link} onPress={this.onPolicyPress}> PayPal Policies </Text> 
+            <Text style={link} onPress={this.onPolicyPress}> PayPal Policies </Text> 
           and your payment method rights.
         </Text>
         <TouchableHighlight 
           onPress={this.onPayNowPress} 
-          style={styles.payNowBtn}
+          style={payNowBtn}
           underlayColor='#0070BA'
           >
           <View>
-            <Text style={styles.payNowBtnText}>Pay Now</Text>
+            <Text style={payNowBtnText}>Pay Now</Text>
           </View>
         </TouchableHighlight>
-        <Text style={styles.footer}>
+        <Text style={footer}>
           If money is added to your PayPal balance before this transaction completes, the additional balance may be used to complete your payment.
-          <Text onPress={this.onLearnMorePress} style={styles.link}> Learn More</Text>.
+          <Text onPress={this.onLearnMorePress} style={link}> Learn More</Text>.
         </Text>
       </View>
     )  

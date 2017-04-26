@@ -8,13 +8,14 @@ import {
 
 const PaymentInfo = props => {
   let { paymentOptions } = props;
+  let { title, backupText } = styles;
 
   return (
     <View>
-      <Text style={styles.title}>Pay with</Text>
+      <Text style={title}>Pay with</Text>
       <View>
         <Text>{paymentOptions[0].company} x-{paymentOptions[0].account_number}</Text>
-        <Text style={styles.backupText}>{paymentOptions[1].company} x-{paymentOptions[1].account_number} (backup)</Text>
+        <Text style={backupText}>{paymentOptions[1].company} x-{paymentOptions[1].account_number} (backup)</Text>
         <TouchableHighlight>
           <Text> > </Text>
         </TouchableHighlight>

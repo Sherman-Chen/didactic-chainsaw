@@ -6,20 +6,25 @@ import {
   TouchableHighlight
 } from 'react-native';
 
-const ShippingInfo = ({name, address, city, state, zip}) => (
-  <View>
+
+const ShippingInfo = props => {
+  let { name, address, city, state, zip } = props;
+  let { title } = styles;
+  return (
     <View>
-      <Text style={styles.title}>Ship to</Text>
-    </View>
-    <View>
-      <Text>{name}</Text>
-      <Text>{address}, {city}, {state} {zip}</Text>
-      <TouchableHighlight>
-        <Text> > </Text>
-      </TouchableHighlight>
-    </View>
+      <View>
+        <Text style={title}>Ship to</Text>
+      </View>
+      <View>
+        <Text>{name}</Text>
+        <Text>{address}, {city}, {state} {zip}</Text>
+        <TouchableHighlight>
+          <Text> > </Text>
+        </TouchableHighlight>
+      </View>
   </View>
-);
+  )
+};
 
 const styles = StyleSheet.create({
   title: {
