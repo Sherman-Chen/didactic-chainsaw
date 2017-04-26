@@ -44,7 +44,7 @@ export default class PaymentInfo extends Component {
       </View>
     )  
   }
-};
+}
 
 const styles = StyleSheet.create({
   padding: {

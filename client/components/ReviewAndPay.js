@@ -35,7 +35,7 @@ export default class ReviewAndPay extends Component {
   }
 
   render() {
-    let { container, blurb, link, button, buttonText, footer} = styles;
+    let { container, blurb, link, button, buttonText, footer } = styles;
 
     return (
       <View style={container}>
@@ -63,7 +63,7 @@ export default class ReviewAndPay extends Component {
       </View>
     )  
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {

@@ -42,7 +42,7 @@ export default class ShippingInfo extends Component {
     </View>
     )
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {

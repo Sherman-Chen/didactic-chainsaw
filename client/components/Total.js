@@ -40,7 +40,7 @@ export default class Total extends Component {
       </TouchableOpacity>
     )
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {

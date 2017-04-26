@@ -29,7 +29,7 @@ export default class Success extends Component {
       </View>
     )
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {
