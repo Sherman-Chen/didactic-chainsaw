@@ -15,6 +15,10 @@ import {
 export default class client extends Component {
   constructor() {
     super();
+    this.state = {
+      user: [],
+      dataFetched: false
+    }
   }
 
   componentDidMount() {
@@ -28,7 +32,10 @@ export default class client extends Component {
         return res.json();
       })
       .then(r => {
-        console.log(r);
+        this.setState({
+          user: r[0]
+        });
+        console.log(`state is now ${this.state.user.name}`);
       })
       .catch(e => {
         console.error(e);
@@ -40,7 +47,7 @@ export default class client extends Component {
       <View>
         <View>
           <Text>Ship to</Text>
-          <Text>Dummy</Text>
+          <Text>{this.state.user.name}</Text>
         </View>
         <View>
           <Text>Pay with</Text>
