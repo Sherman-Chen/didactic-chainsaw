@@ -16,12 +16,19 @@ export default class Home extends Component {
     super(props);
     this.state = {
       user: [],
-      dataFetched: false
+      dataFetched: false,
+      networkError: false
     };
   }
 
   fetchUserData() {
-    fetch('http://localhost:8080/api')
+    fetch('http://localhost:8080/api', {
+      method: 'GET',
+      mode: 'CORS',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    })
       .then(res => {
         return res.json();
       })
@@ -33,6 +40,9 @@ export default class Home extends Component {
       })
       .catch(e => {
         console.error(e);
+        this.setState({
+          networkError: true
+        });
       })
   }
 
@@ -69,6 +79,13 @@ export default class Home extends Component {
           </View>
         </View>
       );
+    } else if (this.state.networkError) {
+      let { loading, loadingText } = styles;
+      return (
+        <View style={loading}>
+          <Text style={[loadingText, {color: 'red'}]}>500 - Server Error</Text>
+        </View>
+      )
     } else {
       let { loading, loadingText } = styles;
       return (
