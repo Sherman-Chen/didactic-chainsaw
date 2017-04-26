@@ -5,69 +5,64 @@ import {
   View,
   TouchableHighlight,
   Modal,
-  ScrollView
 } from 'react-native';
 
 const PayNowModal = props => {
   let { showModal, onClose } = props;
-  let { modalContainer, article, closeButton, buttonText, articleText, title } = styles;
+  let { modalContainer, button, buttonText } = styles;
 
   return (
     <Modal
       visible={showModal}
       animationType={'fade'}
+      transparent={true}
       onRequestClose={() => {console.log('ANDROID DEV')}}
     >
-        <View style={modalContainer}>
-          <ScrollView style={article}>
-            <Text style={title}>PayNowModal</Text>
-            <Text style={articleText}>1. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolores fuga, temporibus officiis odio quas asperiores possimus! Est magni ullam vitae unde soluta facere. Ipsam suscipit nemo ducimus natus obcaecati. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente natus laudantium dolorem odio. Voluptatibus eum voluptate ab, velit animi nam odit culpa veritatis molestiae nihil quas quia tempora officia, possimus.</Text>
-            <Text style={articleText}>2. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolores fuga, temporibus officiis odio quas asperiores possimus! Est magni ullam vitae unde soluta facere. Ipsam suscipit nemo ducimus natus obcaecati. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente natus laudantium dolorem odio. Voluptatibus eum voluptate ab, velit animi nam odit culpa veritatis molestiae nihil quas quia tempora officia, possimus.</Text>
-            <Text style={articleText}>3. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolores fuga, temporibus officiis odio quas asperiores possimus! Est magni ullam vitae unde soluta facere. Ipsam suscipit nemo ducimus natus obcaecati. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente natus laudantium dolorem odio. Voluptatibus eum voluptate ab, velit animi nam odit culpa veritatis molestiae nihil quas quia tempora officia, possimus.</Text>
-            <Text style={articleText}>4. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolores fuga, temporibus officiis odio quas asperiores possimus! Est magni ullam vitae unde soluta facere. Ipsam suscipit nemo ducimus natus obcaecati. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente natus laudantium dolorem odio. Voluptatibus eum voluptate ab, velit animi nam odit culpa veritatis molestiae nihil quas quia tempora officia, possimus.</Text>
-            <Text style={articleText}>5. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolores fuga, temporibus officiis odio quas asperiores possimus! Est magni ullam vitae unde soluta facere. Ipsam suscipit nemo ducimus natus obcaecati. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente natus laudantium dolorem odio. Voluptatibus eum voluptate ab, velit animi nam odit culpa veritatis molestiae nihil quas quia tempora officia, possimus.</Text>
-          </ScrollView>
+      <View style={modalContainer}>
+        <View>
           <TouchableHighlight 
             onPress={onClose} 
-            style={closeButton} 
+            style={button} 
             underlayColor='#0070BA'
           >
-            <Text style={buttonText}>Close</Text>
+            <Text style={buttonText}>Confirm</Text>
           </TouchableHighlight>
         </View>
+        <View>
+          <TouchableHighlight 
+            onPress={onClose} 
+            style={button} 
+            underlayColor='#0070BA'
+          >
+            <Text style={buttonText}>Return</Text>
+          </TouchableHighlight>
+        </View>
+       </View> 
     </Modal>
   )
 };
 
 const styles = StyleSheet.create({
   modalContainer: {
-    padding: 30
+    padding: 30,
+    height: '100%',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.75)'
   },
-  article: {
-    height: '85%',
-    marginBottom: 20
+  button: {
+    backgroundColor: '#1072B7',
+    height: 60,
+    borderRadius: 5,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15,
   },
   buttonText: {
+    textAlign: 'center',
     color: 'white',
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  closeButton: {
-    height: '15%',
-    borderRadius: 5,
-    backgroundColor: '#1072B7',
-    justifyContent: 'center'
-  },
-  articleText: {
-    fontSize: 15,
-    marginBottom: 5
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginBottom: 5
+    fontSize: 24,
+    fontWeight: 'bold'
   }
 });
 

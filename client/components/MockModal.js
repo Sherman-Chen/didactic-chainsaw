@@ -44,17 +44,17 @@ const styles = StyleSheet.create({
     padding: 30
   },
   article: {
-    height: '85%',
+    height: '90%',
     marginBottom: 20
   },
   buttonText: {
     color: 'white',
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   closeButton: {
-    height: '15%',
+    height: '10%',
     borderRadius: 5,
     backgroundColor: '#1072B7',
     justifyContent: 'center'
