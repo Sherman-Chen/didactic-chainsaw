@@ -4,8 +4,8 @@ import {
   Text,
   View,
   TouchableHighlight,
-  Modal
 } from 'react-native';
+import MockModal from './MockModal';
 
 export default class ReviewAndPay extends Component {
   constructor() {
@@ -13,13 +13,11 @@ export default class ReviewAndPay extends Component {
     this.state = {
       showModal: false
     };
-    this.onPolicyPress = this.onPolicyPress.bind(this);
+    this.onModalPress = this.onModalPress.bind(this)
     this.onPayNowPress = this.onPayNowPress.bind(this);
-    this.onLearnMorePress = this.onLearnMorePress.bind(this);
   }
 
-  onPolicyPress() {
-    console.log('on policy press', this.state.showModal);
+  onModalPress() {
     this.setState({
       showModal: !this.state.showModal
     });
@@ -29,45 +27,31 @@ export default class ReviewAndPay extends Component {
     console.log('on learn more press');
   }
 
-  onLearnMorePress() {
-    console.log('on learn more press');
-  }
-
   render() {
-    let { container, blurb, link, payNowBtn, payNowBtnText, footer, policyModal, xtra} = styles;
+    let { container, blurb, link, payNowBtn, payNowBtnText, footer} = styles;
 
     return (
       <View style={container}>
         <Text style={blurb}>
           View 
-            <Text style={link} onPress={this.onPolicyPress}> PayPal Policies </Text> 
+            <Text style={link} onPress={this.onModalPress}> PayPal Policies </Text> 
           and your payment method rights.
         </Text>
         <TouchableHighlight 
           onPress={this.onPayNowPress} 
           style={payNowBtn}
           underlayColor='#0070BA'
-          >
+        >
           <View>
             <Text style={payNowBtnText}>Pay Now</Text>
           </View>
         </TouchableHighlight>
         <Text style={footer}>
           If money is added to your PayPal balance before this transaction completes, the additional balance may be used to complete your payment.
-          <Text onPress={this.onLearnMorePress} style={link}> Learn More</Text>.
+          <Text onPress={this.onModalPress} style={link}> Learn More</Text>.
         </Text>
 
-        <Modal
-          visible={this.state.showModal}
-          animationType={'fade'}
-          onRequestClose={() => {console.log('ANDROID DEV')}}
-        >
-          <View style={policyModal}>
-            <Text>ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolores fuga, temporibus officiis odio quas asperiores possimus! Est magni ullam vitae unde soluta facere. Ipsam suscipit nemo ducimus natus obcaecati. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente natus laudantium dolorem odio. Voluptatibus eum voluptate ab, velit animi nam odit culpa veritatis molestiae nihil quas quia tempora officia, possimus.</Text>
-            <Text onPress={this.onPolicyPress} style={[link, xtra]}>X</Text>
-          </View>
-        </Modal>
-
+        <MockModal showModal={this.state.showModal} onClose={this.onModalPress} />
       </View>
     )  
   }
@@ -107,11 +91,5 @@ const styles = StyleSheet.create({
   link: {
     color: '#1072B7',
     fontWeight: 'bold'
-  },
-  policyModal: {
-    padding: 30
-  },
-  xtra: {
-    fontSize: 100
   }
 });
