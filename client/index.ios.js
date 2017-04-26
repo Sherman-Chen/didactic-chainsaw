@@ -67,6 +67,7 @@ export default class client extends Component {
           />
           <View>
             <Text>Total</Text>
+            <Text>$28.98</Text>
           </View>
           <Text>View PayPal Policies and your payment method rights.</Text>
           <TouchableHighlight onPress={this.onPayNowPress}>
