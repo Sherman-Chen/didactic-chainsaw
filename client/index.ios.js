@@ -5,7 +5,7 @@ import {
   Text,
   View,
   TouchableHighlight,
-  StatusBar
+  ActivityIndicator
 } from 'react-native';
 import ShippingInfo from './components/ShippingInfo';
 import PaymentInfo from './components/PaymentInfo';
@@ -47,7 +47,6 @@ export default class client extends Component {
 
       return (
         <View style={flexContainer}>
-          <StatusBar translucent={true} backgroundColor={'transparent'} /> 
           <View style={infoContainer}>
             <ShippingInfo 
               name={name}
@@ -75,7 +74,10 @@ export default class client extends Component {
       let { loading, loadingText } = styles;
       return (
         <View style={loading}>
-          <Text style={loadingText}>App Initializing...</Text>
+          <View>
+            <Text style={loadingText}>App Initializing</Text>
+          </View>
+          <ActivityIndicator size='large' color='#1072B7'/>
         </View>
       )
     }
@@ -90,7 +92,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   loadingText: {
-    fontSize: 40
+    fontSize: 40,
+    fontWeight: 'bold',
+    marginBottom: 30
   },
   flexContainer: {
     display: 'flex',
