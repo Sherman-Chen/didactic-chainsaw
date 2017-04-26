@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,10 +10,12 @@ import {
 
 const MockPickerModal = props => {
   let { showModal, onClose } = props;
-  let { modalContainer, buttonContainer, button, buttonText, picker, container } = styles;
+  let { padding, buttonContainer, button, buttonText, picker, container } = styles;
+
+  // we can map over props to fill the <Picker /> component options in the future
 
   return (
-    <View style={modalContainer}>
+    <View style={padding}>
       <Modal
         visible={showModal}
         animationType={'fade'}
@@ -42,7 +44,7 @@ const MockPickerModal = props => {
 };
 
 const styles = StyleSheet.create({
-  modalContainer: {
+  padding: {
     padding: 30,
   },
   picker: {

@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  ActivityIndicator,
-  Navigator
-} from 'react-native';
+import { AppRegistry, Navigator} from 'react-native';
 import Home from './components/Home';
 import Success from './components/Success';
 

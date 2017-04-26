@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,7 +10,7 @@ import {
 
 const MockModal = props => {
   let { showModal, onClose, animation } = props;
-  let { modalContainer, article, closeButton, buttonText, articleText, title } = styles;
+  let { padding, article, button, buttonText, articleText, title } = styles;
 
   return (
     <Modal
@@ -18,7 +18,7 @@ const MockModal = props => {
       animationType={animation}
       onRequestClose={() => {console.log('ANDROID DEV')}}
     >
-        <View style={modalContainer}>
+        <View style={padding}>
           <ScrollView style={article}>
             <Text style={title}>Content Header</Text>
             <Text style={articleText}>1. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolores fuga, temporibus officiis odio quas asperiores possimus! Est magni ullam vitae unde soluta facere. Ipsam suscipit nemo ducimus natus obcaecati. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente natus laudantium dolorem odio. Voluptatibus eum voluptate ab, velit animi nam odit culpa veritatis molestiae nihil quas quia tempora officia, possimus.</Text>
@@ -29,7 +29,7 @@ const MockModal = props => {
           </ScrollView>
           <TouchableHighlight 
             onPress={onClose} 
-            style={closeButton} 
+            style={button} 
             underlayColor='#0070BA'
           >
             <Text style={buttonText}>Close</Text>
@@ -40,7 +40,7 @@ const MockModal = props => {
 };
 
 const styles = StyleSheet.create({
-  modalContainer: {
+  padding: {
     padding: 30
   },
   article: {
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  closeButton: {
+  button: {
     height: '10%',
     borderRadius: 5,
     backgroundColor: '#1072B7',

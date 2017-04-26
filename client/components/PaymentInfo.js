@@ -24,10 +24,12 @@ export default class PaymentInfo extends Component {
 
   render() {
     let { paymentOptions } = this.props;
-    let { container, title, backupText, itemContainer, item1, item2, link } = styles;
+    let { padding, title, backupText, itemContainer, item1, item2, link } = styles;
+
+    // we can map over props to populate the paymentOptions in the future, depending on how we implement the selector function
 
     return (
-      <View style={container}>
+      <View style={padding}>
         <View>
           <Text style={title}>Pay with</Text>
         </View>
@@ -50,7 +52,7 @@ export default class PaymentInfo extends Component {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  padding: {
     paddingTop: 30,
     paddingLeft: 20
   },

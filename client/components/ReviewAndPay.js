@@ -40,7 +40,7 @@ export default class ReviewAndPay extends Component {
   }
 
   render() {
-    let { container, blurb, link, payNowBtn, payNowBtnText, footer} = styles;
+    let { container, blurb, link, button, buttonText, footer} = styles;
 
     return (
       <View style={container}>
@@ -51,11 +51,11 @@ export default class ReviewAndPay extends Component {
         </Text>
         <TouchableHighlight 
           onPress={this.onPayNowPress} 
-          style={payNowBtn}
+          style={button}
           underlayColor='#0070BA'
         >
           <View>
-            <Text style={payNowBtnText}>Pay Now</Text>
+            <Text style={buttonText}>Pay Now</Text>
           </View>
         </TouchableHighlight>
         <Text style={footer}>
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 10
   },
-  payNowBtn: {
+  button: {
     backgroundColor: '#1072B7',
     height: 60,
     borderRadius: 5,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 15,
   },
-  payNowBtnText: {
+  buttonText: {
     textAlign: 'center',
     color: 'white',
     fontSize: 24,
