@@ -5,10 +5,15 @@ import {
   View,
 } from 'react-native';
 
-const PaymentInfo = (props) => (
-  <View>
-    <Text>PaymentInfo Component to receive Props</Text>
-  </View>
-)
+const PaymentInfo = props => {
+  let { paymentOptions } = props;
+
+  return (
+    <View>
+      <Text>Pay with</Text>
+      <Text>{paymentOptions[0].company} x-{paymentOptions[0].account_number}</Text>
+    </View>
+  )  
+}
 
 export default PaymentInfo

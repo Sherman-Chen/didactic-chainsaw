@@ -50,9 +50,9 @@ export default class client extends Component {
   }
 
   render() {
-    let { name, address, city, state, zip, payment_options } = this.state.user;
-
     if (this.state.dataFetched) {
+      let { name, address, city, state, zip, payment_options } = this.state.user;
+
       return (
         <View>
           <ShippingInfo 
@@ -62,7 +62,9 @@ export default class client extends Component {
             state={state}
             zip={zip} 
           />
-          <PaymentInfo />
+          <PaymentInfo 
+            paymentOptions={payment_options}
+          />
           <View>
             <Text>Total</Text>
           </View>
