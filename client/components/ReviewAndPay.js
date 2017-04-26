@@ -60,6 +60,7 @@ export default class ReviewAndPay extends Component {
         <Modal
           visible={this.state.showModal}
           animationType={'fade'}
+          onRequestClose={() => {console.log('ANDROID DEV')}}
         >
           <View style={policyModal}>
             <Text>ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolores fuga, temporibus officiis odio quas asperiores possimus! Est magni ullam vitae unde soluta facere. Ipsam suscipit nemo ducimus natus obcaecati. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente natus laudantium dolorem odio. Voluptatibus eum voluptate ab, velit animi nam odit culpa veritatis molestiae nihil quas quia tempora officia, possimus.</Text>
