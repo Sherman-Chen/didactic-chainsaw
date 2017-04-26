@@ -13,11 +13,22 @@ import {
 } from 'react-native';
 
 export default class client extends Component {
+  componentDidMount() {
+    console.log('logging from client');
+    fetch('http://localhost:8080/api')
+      .then(res => {
+        return res.json();
+      })
+      .then(r => {
+        console.log(r)
+      })
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to simulator
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js

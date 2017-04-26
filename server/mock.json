@@ -4,10 +4,8 @@
 		"address": "8114 Grow Drive #9",
 		"city": "Cape Neddick",
 		"state": "ME",
-		"zip": "03902"
-	},
-	{
-		"options": [
+		"zip": "03902",
+		"payment_options": [
 			{
 				"company": "BANK OF AMERICA CHECKING",
 				"account_number": "5567"
