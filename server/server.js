@@ -22,7 +22,7 @@ app.get('/api', (req, res) => {
 
 /*
 app.get('/api/:id', (req, res) => {
-  we can use req.params.id to specifically GET/look up an individual user
+  we can use req.params.id to specifically GET/look up an individual user in the future
 })
 */
 
