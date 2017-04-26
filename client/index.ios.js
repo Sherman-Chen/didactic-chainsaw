@@ -55,7 +55,13 @@ export default class client extends Component {
     if (this.state.dataFetched) {
       return (
         <View>
-          <ShippingInfo name={name} />
+          <ShippingInfo 
+            name={name}
+            address={address}
+            city={city}
+            state={state}
+            zip={zip} 
+          />
           <PaymentInfo />
           <View>
             <Text>Total</Text>
