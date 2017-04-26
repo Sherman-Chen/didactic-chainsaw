@@ -1,31 +1,52 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
   View,
   TouchableHighlight
 } from 'react-native';
+import PayNowModal from './PayNowModal';
 
-const PaymentInfo = props => {
-  let { paymentOptions } = props;
-  let { container, title, backupText, alignItems, item1, item2, link } = styles;
+export default class PaymentInfo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false
+    };
+    this.onModalPress = this.onModalPress.bind(this);
+  }
 
-  return (
-    <View style={container}>
-      <View>
-        <Text style={title}>Pay with</Text>
-      </View>
-      <View style={alignItems}>
-        <View style={item1}>
-          <Text>{paymentOptions[0].company} x-{paymentOptions[0].account_number}</Text>
-          <Text style={backupText}>{paymentOptions[1].company} x-{paymentOptions[1].account_number} (backup)</Text>
+  onModalPress() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  }
+
+  render() {
+    let { paymentOptions } = this.props;
+    let { container, title, backupText, itemContainer, item1, item2, link } = styles;
+
+    return (
+      <View style={container}>
+        <View>
+          <Text style={title}>Pay with</Text>
         </View>
-        <View style={item2}>
-          <Text style={link}>></Text>
-        </View>
+        <TouchableHighlight onPress={this.onModalPress} underlayColor='white'>
+          <View style={itemContainer}>
+            <View style={item1}>
+              <Text>{paymentOptions[0].company} x-{paymentOptions[0].account_number}</Text>
+              <Text style={backupText}>{paymentOptions[1].company} x-{paymentOptions[1].account_number} (backup)</Text>
+            </View>
+            <View style={item2}>
+              <Text style={link}>></Text>
+            </View>
+          </View>
+        </TouchableHighlight>
+
+        <PayNowModal showModal={this.state.showModal} onClose={this.onModalPress} />
       </View>
-    </View>
-  )  
+    )  
+  }
 };
 
 const styles = StyleSheet.create({
@@ -37,10 +58,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20
   },
-  alignItems: {
+  itemContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 10
+    marginTop: 10,
   },
   item1: {
     flexBasis: '90%'
@@ -60,5 +81,3 @@ const styles = StyleSheet.create({
     paddingRight: 9
   }
 });
-
-export default PaymentInfo
