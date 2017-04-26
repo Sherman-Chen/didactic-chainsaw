@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 const PayNowModal = props => {
-  let { showModal, onClose } = props;
+  let { showModal, onClose, onAccept } = props;
   let { modalContainer, button, buttonText } = styles;
 
   return (
@@ -21,7 +21,7 @@ const PayNowModal = props => {
       <View style={modalContainer}>
         <View>
           <TouchableHighlight 
-            onPress={onClose} 
+            onPress={onAccept} 
             style={button} 
             underlayColor='#0070BA'
           >

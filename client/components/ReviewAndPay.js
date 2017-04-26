@@ -9,14 +9,15 @@ import MockModal from './MockModal';
 import PayNowModal from './PayNowModal';
 
 export default class ReviewAndPay extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showModal: false,
       showPayNowModal: false
     };
     this.onModalPress = this.onModalPress.bind(this);
     this.onPayNowPress = this.onPayNowPress.bind(this);
+    this.onAccept = this.onAccept.bind(this);
   }
 
   onModalPress() {
@@ -29,6 +30,13 @@ export default class ReviewAndPay extends Component {
     this.setState({
       showPayNowModal: !this.state.showPayNowModal
     });
+  }
+
+  onAccept() {
+    this.onPayNowPress();
+    this.props.navigator.push({
+      id: 'Success'
+    })
   }
 
   render() {
@@ -56,7 +64,7 @@ export default class ReviewAndPay extends Component {
         </Text>
 
         <MockModal showModal={this.state.showModal} onClose={this.onModalPress} animation={'slide'}/>
-        <PayNowModal showModal={this.state.showPayNowModal} onClose={this.onPayNowPress}/>
+        <PayNowModal showModal={this.state.showPayNowModal} onClose={this.onPayNowPress} onAccept={this.onAccept}/>
       </View>
     )  
   }

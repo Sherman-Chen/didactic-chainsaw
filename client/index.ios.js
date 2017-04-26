@@ -9,12 +9,15 @@ import {
   Navigator
 } from 'react-native';
 import Home from './components/Home';
+import Success from './components/Success';
 
 export default class client extends Component {
   renderScene(route, navigator) {
     switch(route.id) {
       case 'Home':
         return (<Home navigator={navigator} />)
+      case 'Success':
+        return (<Success navigator={navigator} />)
     }
   }
 

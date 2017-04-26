@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -13,8 +12,8 @@ import ReviewAndPay from './ReviewAndPay';
 import Total from './Total';
 
 export default class Home extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       user: [],
       dataFetched: false
@@ -66,7 +65,7 @@ export default class Home extends Component {
             <Total />
           </View>
           <View style={reviewAndPayContainer}>
-            <ReviewAndPay />
+            <ReviewAndPay navigator={this.props.navigator} />
           </View>
         </View>
       );
