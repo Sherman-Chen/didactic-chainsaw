@@ -16,8 +16,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
+  // treat this as a GET ALL route
   res.json(mock);
 })
+
+/*
+app.get('/api/:id', (req, res) => {
+  we can use req.params.id to specifically GET/look up an individual user
+})
+*/
 
 // start server
 app.listen(port, () => {
