@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity
-} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import MockModal from './MockModal'
 
-class Total extends Component {
+export default class Total extends Component {
   constructor() {
     super();
     this.state = {
@@ -77,5 +72,3 @@ const styles = StyleSheet.create({
     flexBasis: '10%'
   }
 });
-
-export default Total

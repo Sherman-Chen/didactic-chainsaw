@@ -1,10 +1,5 @@
 import React, { Component } from 'React';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight
-} from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import MockPickerModal from './MockPickerModal';
 
 export default class ShippingInfo extends Component {

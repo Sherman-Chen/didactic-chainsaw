@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  ActivityIndicator
-} from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, ActivityIndicator } from 'react-native';
 import ShippingInfo from './ShippingInfo';
 import PaymentInfo from './PaymentInfo';
 import ReviewAndPay from './ReviewAndPay';

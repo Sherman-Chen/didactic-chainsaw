@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  Modal,
-  ScrollView
-} from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, Modal, ScrollView } from 'react-native';
 
 const MockModal = props => {
   let { showModal, onClose, animation } = props;

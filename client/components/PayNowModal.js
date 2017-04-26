@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  Modal,
-} from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, Modal } from 'react-native';
 
 const PayNowModal = props => {
   let { showModal, onClose, onAccept } = props;
