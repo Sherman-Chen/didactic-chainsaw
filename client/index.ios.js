@@ -9,8 +9,11 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableHighlight
 } from 'react-native';
+import ShippingInfo from './components/ShippingInfo';
+import PaymentInfo from './components/PaymentInfo';
 
 export default class client extends Component {
   constructor() {
@@ -18,7 +21,8 @@ export default class client extends Component {
     this.state = {
       user: [],
       dataFetched: false
-    }
+    };
+    this.onPayNowPress = this.onPayNowPress.bind(this);
   }
 
   fetchUserData() {
@@ -37,27 +41,29 @@ export default class client extends Component {
       })
   }
 
+  onPayNowPress() {
+    console.log('wired');
+  }
+
   componentDidMount() {
-    console.log('logging from client2');
     this.fetchUserData();
   }
 
   render() {
+    let { name, address, city, state, zip, payment_options } = this.state.user;
+
     if (this.state.dataFetched) {
       return (
         <View>
-          <View>
-            <Text>Ship to</Text>
-            <Text>{this.state.user.name}</Text>
-          </View>
-          <View>
-            <Text>Pay with</Text>
-          </View>
+          <ShippingInfo name={name} />
+          <PaymentInfo />
           <View>
             <Text>Total</Text>
           </View>
           <Text>View PayPal Policies and your payment method rights.</Text>
-          <Text>Pay Now</Text>
+          <TouchableHighlight onPress={this.onPayNowPress}>
+            <Text>Pay Now</Text>
+          </TouchableHighlight>
           <Text>If money is added to your PayPal balance before this transaction completes, the additional balance may be used to complete your payment. Learn More.</Text>
         </View>
       );
