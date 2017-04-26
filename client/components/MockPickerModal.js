@@ -30,11 +30,11 @@ const MockPickerModal = props => {
               <Picker.Item label='option3' value='option3'/>
             </Picker>
           </View>
-          <View style={buttonContainer}>
+          <TouchableHighlight style={buttonContainer} onPress={onClose} underlayColor='#0070BA'>
             <View style={button}>
-              <Text style={buttonText} onPress={onClose}>Save Selection</Text>
+              <Text style={buttonText}>Save Selection</Text>
             </View>
-          </View> 
+          </TouchableHighlight> 
         </View>
       </Modal>
     </View>
