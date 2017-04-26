@@ -24,9 +24,9 @@ export default class client extends Component {
   render() {
     return (
       <Navigator 
-        initialRoute={{id: 'Home'}}
+        initialRoute={{id: 'Success'}}
         renderScene={this.renderScene}
-        configureScreen={(route, routeStack) => Navigator.SceneConfigs.FloatFromBottom}
+        configureScreen={(route, routeStack) => Navigator.SceneConfigs.PushFromRight}
       />
     )
   }
