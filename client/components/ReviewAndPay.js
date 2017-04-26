@@ -3,19 +3,26 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  TouchableHighlight,
+  Modal
 } from 'react-native';
 
 export default class ReviewAndPay extends Component {
   constructor() {
     super();
+    this.state = {
+      showModal: false
+    };
     this.onPolicyPress = this.onPolicyPress.bind(this);
     this.onPayNowPress = this.onPayNowPress.bind(this);
     this.onLearnMorePress = this.onLearnMorePress.bind(this);
   }
 
   onPolicyPress() {
-    console.log('on policy press');
+    console.log('on policy press', this.state.showModal);
+    this.setState({
+      showModal: !this.state.showModal
+    });
   }
 
   onPayNowPress() {
@@ -27,7 +34,7 @@ export default class ReviewAndPay extends Component {
   }
 
   render() {
-    let { container, blurb, link, payNowBtn, payNowBtnText, footer } = styles;
+    let { container, blurb, link, payNowBtn, payNowBtnText, footer, policyModal, xtra} = styles;
 
     return (
       <View style={container}>
@@ -49,6 +56,17 @@ export default class ReviewAndPay extends Component {
           If money is added to your PayPal balance before this transaction completes, the additional balance may be used to complete your payment.
           <Text onPress={this.onLearnMorePress} style={link}> Learn More</Text>.
         </Text>
+
+        <Modal
+          visible={this.state.showModal}
+          animationType={'fade'}
+        >
+          <View style={policyModal}>
+            <Text>ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime dolores fuga, temporibus officiis odio quas asperiores possimus! Est magni ullam vitae unde soluta facere. Ipsam suscipit nemo ducimus natus obcaecati. ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente natus laudantium dolorem odio. Voluptatibus eum voluptate ab, velit animi nam odit culpa veritatis molestiae nihil quas quia tempora officia, possimus.</Text>
+            <Text onPress={this.onPolicyPress} style={[link, xtra]}>X</Text>
+          </View>
+        </Modal>
+
       </View>
     )  
   }
@@ -88,5 +106,11 @@ const styles = StyleSheet.create({
   link: {
     color: '#1072B7',
     fontWeight: 'bold'
+  },
+  policyModal: {
+    padding: 30
+  },
+  xtra: {
+    fontSize: 100
   }
 });
