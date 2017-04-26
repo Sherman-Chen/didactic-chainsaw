@@ -9,7 +9,7 @@ import {
 const ShippingInfo = ({name, address, city, state, zip}) => (
   <View>
     <View>
-      <Text>Ship to</Text>
+      <Text style={styles.title}>Ship to</Text>
     </View>
     <View>
       <Text>{name}</Text>
@@ -19,6 +19,12 @@ const ShippingInfo = ({name, address, city, state, zip}) => (
       </TouchableHighlight>
     </View>
   </View>
-)
+);
+
+const styles = StyleSheet.create({
+  title: {
+    fontWeight: 'bold'
+  } 
+});
 
 export default ShippingInfo

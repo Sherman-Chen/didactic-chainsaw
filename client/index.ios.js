@@ -65,15 +65,16 @@ export default class client extends Component {
           <PaymentInfo 
             paymentOptions={payment_options}
           />
-          <View>
+          <View style={styles.total}>
             <Text>Total</Text>
             <Text>$28.98</Text>
           </View>
           <Text>View PayPal Policies and your payment method rights.</Text>
-          <TouchableHighlight onPress={this.onPayNowPress}>
-            <Text>Pay Now</Text>
+          <TouchableHighlight onPress={this.onPayNowPress} style={styles.payNowBtn}>
+            <Text style={styles.payNowBtnText}>Pay Now</Text>
           </TouchableHighlight>
-          <Text>If money is added to your PayPal balance before this transaction completes, the additional balance may be used to complete your payment. Learn More.</Text>
+          <Text style={styles.footer}>If money is added to your PayPal balance before this transaction completes, the additional balance may be used to complete your payment.</Text>
+          <TouchableHighlight><Text>Learn More</Text></TouchableHighlight>
         </View>
       );
     } else {
@@ -85,7 +86,22 @@ export default class client extends Component {
 }
 
 const styles = StyleSheet.create({
-
+  total: {
+    backgroundColor: 'ghostwhite'
+  },
+  payNowBtn: {
+    backgroundColor: 'blue',
+  },
+  payNowBtnText: {
+    color: 'white'
+  },
+  footer: {
+    color: 'grey',
+    fontSize: 10
+  },
+  link: {
+    color: 'blue'
+  }
 });
 
 AppRegistry.registerComponent('client', () => client);
