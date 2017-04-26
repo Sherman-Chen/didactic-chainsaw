@@ -5,28 +5,48 @@ import {
   View,
   TouchableHighlight
 } from 'react-native';
+import MockPickerModal from './MockPickerModal';
 
+export default class ShippingInfo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false
+    };
+    this.onModalPress = this.onModalPress.bind(this);
+  }
 
-const ShippingInfo = props => {
-  let { name, address, city, state, zip } = props;
-  let { container, title, alignItems, item1, item2, text, text2, link } = styles;
+  onModalPress() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  }
 
-  return (
-    <View style={container}>
-      <View>
-        <Text style={title}>Ship to</Text>
-      </View>
-      <View style={alignItems}>
-        <View style={item1}>
-          <Text style={text}>{name}</Text>
-          <Text style={text2}>{address}, {city}, {state} {zip}</Text>
+  render() {
+    let { name, address, city, state, zip } = this.props;
+    let { container, title, itemContainer, item1, item2, text, text2, link } = styles;
+
+    return (
+      <View style={container}>
+        <View>
+          <Text style={title}>Ship to</Text>
         </View>
-        <View style={item2}>
-          <Text style={link}>></Text>
-        </View>
-      </View>
-  </View>
-  )
+        <TouchableHighlight onPress={this.onModalPress} underlayColor='white'>
+          <View style={itemContainer}>
+            <View style={item1}>
+              <Text style={text}>{name}</Text>
+              <Text style={text2}>{address}, {city}, {state} {zip}</Text>
+            </View>
+            <View style={item2}>
+              <Text style={link}>></Text>
+            </View>
+          </View>
+        </TouchableHighlight>
+
+        <MockPickerModal showModal={this.state.showModal} onClose={this.onModalPress} />
+    </View>
+    )
+  }
 };
 
 const styles = StyleSheet.create({
@@ -38,7 +58,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20
   },
-  alignItems: {
+  itemContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10
@@ -65,5 +85,3 @@ const styles = StyleSheet.create({
     paddingRight: 9
   }
 });
-
-export default ShippingInfo
