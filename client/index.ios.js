@@ -93,12 +93,13 @@ const styles = StyleSheet.create({
     fontSize: 40
   },
   flexContainer: {
-    display: 'flex'
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'stretch'
   },
   infoContainer: {
-    display: 'flex',
-    justifyContent: 'center',
     height: '25%',
+    marginTop: 5
   },
   totalContainer: {
     backgroundColor: '#F7F9FA',
@@ -110,8 +111,6 @@ const styles = StyleSheet.create({
     height: '10%'
   },
   reviewAndPayContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
     height: '40%',
   },
   text: {

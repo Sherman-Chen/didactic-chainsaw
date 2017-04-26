@@ -8,23 +8,31 @@ import {
 
 const PaymentInfo = props => {
   let { paymentOptions } = props;
-  let { title, backupText } = styles;
+  let { container, title, backupText } = styles;
 
   return (
-    <View>
-      <Text style={title}>Pay with</Text>
+    <View style={container}>
       <View>
-        <Text>{paymentOptions[0].company} x-{paymentOptions[0].account_number}</Text>
-        <Text style={backupText}>{paymentOptions[1].company} x-{paymentOptions[1].account_number} (backup)</Text>
-        <TouchableHighlight>
-          <Text> > </Text>
-        </TouchableHighlight>
+        <Text style={title}>Pay with</Text>
+      </View>
+      <View>
+        <View>
+          <Text>{paymentOptions[0].company} x-{paymentOptions[0].account_number}</Text>
+          <Text style={backupText}>{paymentOptions[1].company} x-{paymentOptions[1].account_number} (backup)</Text>
+        </View>
+        <View>
+          <Text>></Text>
+        </View>
       </View>
     </View>
   )  
 };
 
 const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
   title: {
     fontWeight: 'bold'
   },
